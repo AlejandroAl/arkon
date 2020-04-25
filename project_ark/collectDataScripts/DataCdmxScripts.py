@@ -57,10 +57,6 @@ def getDataMetrobus():
 
     x = mycol.insert_many(records)
 
-    #print list of the _id values of the inserted documents:
-
-    return x.inserted_ids
-
 
 def getDataTownHall():
 
@@ -95,5 +91,3 @@ def getDataTownHall():
         })
     
     x = mycol.insert_many(newRecord)
-
-    return newRecord
