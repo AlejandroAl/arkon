@@ -129,11 +129,30 @@ pyvenv.cfg
 .env
 .venv
 env/
-venv/
+venv*/
 ENV/
 env.bak/
 venv.bak/
 pip-selfcheck.json
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.DS_Store
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+
+## mnt
+
+project_ark/mnt/airflow/*.py
+project_ark/mnt/airflow/dags/*.py
+project_ark/mnt/airflow/dags/src/*.py
 
 # End of https://www.gitignore.io/api/python,jupyternotebooks
 

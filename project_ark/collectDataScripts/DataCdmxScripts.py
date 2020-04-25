@@ -97,5 +97,3 @@ def getDataTownHall():
     x = mycol.insert_many(newRecord)
 
     return newRecord
-
-getDataTownHall()
