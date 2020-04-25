@@ -44,13 +44,7 @@ def addTownHall():
         lat = dict_v["fields"]["position_latitude"]
         lon = dict_v["fields"]["position_longitude"]
         dict_v["townHall"] = getTownHall(lat,lon,listTownHall)
-
-    for dict_v in list_vi:
-        print("*"*30)
-        print(dict_v)
-
-    # mycol_v.update_many(list_vi)
+        pprint.pprint(mycol_v.update({"_id":dict_v["_id"]},dict_v))    
+        
 
     return mycol_v
-
-addTownHall()
