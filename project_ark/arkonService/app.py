@@ -9,7 +9,7 @@ port = os.getenv("SERVICE_PORT")
 @app.route('/getAvailableUnits', methods=["GET"])
 def getAvailableUnits():
     listData = mb.getAvailableUnits()
-    return {"townHall": listData}
+    return {"AvailableUnitsList": listData}
 
 @app.route('/metrobusDetailsById', methods=["GET"])
 def detailsByID():
@@ -21,7 +21,15 @@ def detailsByID():
 @app.route('/getlistTownHalls', methods=["GET"])
 def getlistTownHall():
     listData = mb.getlistTownHall()
-    return {"id": listData}
+    return {"TownHallsList": listData}
+
+
+@app.route('/metrobusUnitsByTownHall', methods=["POST"])
+def metrobusUnitsByTownHall():
+    id = request.get_json()
+    listData = mb.metrobusUnitsByTownHall(id["TH"])
+    return {id["TH"]: listData}
+
 
 
 if __name__ == '__main__':

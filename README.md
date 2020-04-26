@@ -66,3 +66,27 @@ docker-compose -f docker-compose.yml down
 After some minute you can go the next endpoints:
 
 * localhost:8081 (iarflow webserver)
+* http://localhost:5000/getAvailableUnits (GET Method)
+* http://localhost:5000/getlistTownHalls (GET Method)
+* http://localhost:5000/metrobusDetailsById?ID= (GET Method)
+* http://localhost:5000/metrobusUnitsByTownHall (POST Method)
+  * {	"TH":"alcaldia"} (body)
+
+Lista de alcaldias:
+
+* Alvaro Obregon
+* Azcapotzalco
+* Benito Juarez
+* Coyoacan
+* Cuajimalpa de Morelos
+* Cuauhtemoc
+* Gustavo A. Madero
+* Iztacalco
+* Iztapalapa
+* La Magdalena Contreras
+* Miguel Hidalgo
+* Milpa Alta
+* Tlahuac
+* Tlalpan
+* Venustiano Carranza
+* Xochimilco

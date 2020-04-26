@@ -2,7 +2,7 @@ import pymongo
 
 
 # Let get specific Metrobus unit data
-def getSpecificData(data):
+def getSpecificData(data, th=True):
     '''
 
     :param data:dict
@@ -14,7 +14,8 @@ def getSpecificData(data):
     new_dict_record = {}
     new_dict_record["vehicle_id"] = record["vehicle_id"]
     new_dict_record["vehicle_label"] = record["vehicle_label"]
-    new_dict_record["townHall_position"] = data["townHall"]
+    if th:
+        new_dict_record["townHall_position"] = data["townHall"]
 
     return new_dict_record
 
@@ -63,7 +64,7 @@ def getAvailableUnits():
     #Get data from mongo
     data = list(mycol_v.find(query_filter))
 
-    list_records = list(map(lambda x: getListDetails(x), data))
+    list_records = list(map(lambda x: getSpecificData(x), data))
 
     return list_records
 
@@ -98,7 +99,7 @@ def getlistTownHall():
     :return:
     '''
 
-    # Get Connection to mongoDB
+    # Get Connection to mgetAvailableUnitsongoDB
     myclient = pymongo.MongoClient("mongodb://mongo:27017/")
     # Get or create data base and collection name
     mydb = myclient["Metrobus"]
@@ -123,3 +124,54 @@ def getlistTownHall():
     print(data)
 
     return data
+
+
+def normalize(s):
+    ''' Convert string with stress values to strigt without them
+
+    Parameters:
+    s (str): String of characteres
+
+    Returns:
+    str: string without stress values
+
+    '''
+    replacements = (
+        ("á", "a"),
+        ("é", "e"),
+        ("í", "i"),
+        ("ó", "o"),
+        ("ú", "u"),
+        ("Á", "A"),
+        ("É", "E"),
+        ("Í", "I"),
+        ("Ó", "O"),
+        ("Ú", "U"),
+    )
+    for a, b in replacements:
+        s = s.replace(a, b).replace(a.upper(), b.upper())
+    return s
+
+
+def metrobusUnitsByTownHall(townHall):
+    '''
+    :param id:
+    :return:
+    '''
+
+    # Get Connection to mgetAvailableUnitsongoDB
+    myclient = pymongo.MongoClient("mongodb://mongo:27017/")
+    # Get or create data base and collection name
+    mydb = myclient["Metrobus"]
+    mycol_v = mydb["Vehiculos"]
+    query_filter ={"townHall": normalize(townHall)}
+
+    print(query_filter)
+    # Get data from mongo
+    data = list(mycol_v.find(query_filter))
+
+    list_records = list(map(lambda x: getSpecificData(x,False), data))
+
+    return list_records
+
+
