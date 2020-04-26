@@ -150,7 +150,6 @@ pip-selfcheck.json
 
 ## mnt
 
-project_ark/mnt/airflow/*.py
 project_ark/mnt/airflow/dags/*.py
 project_ark/mnt/airflow/dags/src/*.py
 

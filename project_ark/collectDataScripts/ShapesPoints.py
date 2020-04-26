@@ -29,7 +29,7 @@ def getTownHall(lat,long,listTownHall):
     return townHall
 
 def addTownHall():
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    myclient = pymongo.MongoClient("mongodb://mongo:27017/")
     mydb = myclient["Metrobus"]
     mycol_v = mydb["Vehiculos"]
     queryFilter = {"townHall":None}

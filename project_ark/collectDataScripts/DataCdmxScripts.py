@@ -25,7 +25,7 @@ def normalize(s):
     return s
 
 def getDataMetrobus():
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    myclient = pymongo.MongoClient("mongodb://mongo:27017/")
 
     mydb = myclient["Metrobus"]
     mycol = mydb["Vehiculos"]
@@ -60,7 +60,7 @@ def getDataMetrobus():
 
 def getDataTownHall():
 
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    myclient = pymongo.MongoClient("mongodb://mongo:27017/")
 
     mydb = myclient["Metrobus"]
     mycol = mydb["Alcaldias"]
