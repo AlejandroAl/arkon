@@ -9,7 +9,7 @@ from src import ShapesPoints
 
 default_args = {
     'owner': 'arkon_data',
-    'start_date': datetime.strftime(datetime.now() - timedelta(hours=4), '%Y-%m-%d %H:%M:%S'),
+    'start_date': datetime(2020, 4, 25),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }
@@ -19,7 +19,7 @@ dag = DAG(
     default_args=default_args,
     catchup=False,
     description='A simple tutorial DAG',
-    schedule_interval="@hourly",
+    schedule_interval="*/5 * * * *",
 )
 
 

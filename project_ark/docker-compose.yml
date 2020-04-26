@@ -90,3 +90,14 @@ services:
             - POSTGRES_DB=airflow
             - REDIS_PASSWORD=redispass
         command: worker
+
+    arkonservice:
+        build: ./arkonService/.
+        depends_on:
+            - mongo
+        ports:
+            - "5000:5000"
+        environment:
+            - MONGO_CONN="mongodb+srv://admin:4dm1n@cluster0-r5yzx.mongodb.net/test?retryWrites=true&w=majority"
+            - SERVICE_DIR=/home/metadata/service
+            - SERVICE_PORT=5000

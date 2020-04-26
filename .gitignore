@@ -152,6 +152,7 @@ pip-selfcheck.json
 
 project_ark/mnt/airflow/dags/*.py
 project_ark/mnt/airflow/dags/src/*.py
+project_ark/arkonService/.idea/
 
 # End of https://www.gitignore.io/api/python,jupyternotebooks
 
