@@ -72,6 +72,12 @@ After some minute you can go the next endpoints:
 * http://localhost:5000/metrobusUnitsByTownHall (POST Method)
   * {	"TH":"alcaldia"} (body)
 
+```
+NOTE:
+
+If the endpoints dont return value wait to airflow dags finish, they do the ETL processing.
+```
+
 Lista de alcaldias:
 
 * Alvaro Obregon

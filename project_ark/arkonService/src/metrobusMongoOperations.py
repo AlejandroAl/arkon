@@ -16,6 +16,8 @@ def getSpecificData(data, th=True):
     new_dict_record["vehicle_label"] = record["vehicle_label"]
     if th:
         new_dict_record["townHall_position"] = data["townHall"]
+    else:
+        new_dict_record["date_updated"] = record["date_updated"]
 
     return new_dict_record
 
