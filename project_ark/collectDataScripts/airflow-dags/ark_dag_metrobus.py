@@ -9,7 +9,7 @@ from src import ShapesPoints
 
 default_args = {
     'owner': 'arkon_data',
-    'start_date': datetime(2020, 4, 25),
+    'start_date': datetime.strftime(datetime.now() - timedelta(hours=4), '%Y-%m-%d %H:%M:%S'),
     'retries': 1,
     'retry_delay': timedelta(minutes=5),
 }

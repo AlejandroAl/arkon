@@ -50,12 +50,19 @@ NOTE:
 project_ark/
 ```
 
-* Execute the next command:
+* Execute the next command to start the service :
 
 ```
 docker-compose -f docker-compose.yml up -d  --build
 ```
 
-After some minute you can go the next end points:
+* Execute the next command to stop the service :
+
+```
+docker-compose -f docker-compose.yml down
+```
+
+
+After some minute you can go the next endpoints:
 
 * localhost:8081 (iarflow webserver)
